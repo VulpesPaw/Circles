@@ -1,0 +1,28 @@
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csprojAssemblyReference.cache
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Form1.resources
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Properties.Resources.resources
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csproj.GenerateResource.cache
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Debug\CirclesCore.exe.config
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Debug\CirclesCore.exe
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Debug\CirclesCore.pdb
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.exe
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.pdb
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Form1.resources
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Properties.Resources.resources
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csproj.GenerateResource.cache
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Debug\Circles.exe.config
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Debug\Circles.exe
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Debug\Circles.pdb
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\Circles.exe
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\Circles.pdb
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csprojAssemblyReference.cache
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\bin\Debug\Circles.exe.config
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\bin\Debug\Circles.exe
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\bin\Debug\Circles.pdb
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csprojAssemblyReference.cache
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Form1.resources
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.Properties.Resources.resources
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csproj.GenerateResource.cache
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\CirclesCore.csproj.CoreCompileInputs.cache
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\Circles.exe
+D:\Program\OneDrive - Halmstads kommun\Te18In\Programering\CirclesEndExam\CirclesCore\obj\Debug\Circles.pdb

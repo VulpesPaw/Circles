@@ -1,0 +1,18 @@
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Release\CirclesCore.exe.config
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Release\CirclesCore.exe
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\bin\Release\CirclesCore.pdb
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.csprojAssemblyReference.cache
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.Form1.resources
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.Properties.Resources.resources
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.csproj.GenerateResource.cache
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.exe
+D:\Users\Dokument\My programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.pdb
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.csprojAssemblyReference.cache
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.Form1.resources
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.Properties.Resources.resources
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\CirclesCore.csproj.GenerateResource.cache
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Release\Circles.exe.config
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Release\Circles.exe
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Release\Circles.pdb
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\Circles.exe
+D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\Circles.pdb
