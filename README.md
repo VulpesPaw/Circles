@@ -22,7 +22,7 @@ Setup can be seen in the word documents included in the repo. This program is no
 
 ## Notes
 
-This was my exam project for programing C# year 1, 2020. There are a lot of things I would do differently if I were to create this program today.
+This was my exam project for programing C# year 1, 2019. There are a lot of things I would do differently if I were to create this program today.
 
 #
 

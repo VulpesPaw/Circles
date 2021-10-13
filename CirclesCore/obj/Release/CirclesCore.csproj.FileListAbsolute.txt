@@ -16,3 +16,6 @@ D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Release\Circles.exe
 D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\bin\Release\Circles.pdb
 D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\Circles.exe
 D:\Users\Dokument\My_Programs\CirclesEndExam\CirclesCore\obj\Release\Circles.pdb
+Z:\Projects\C#\Circles\CirclesCore\obj\Release\CirclesCore.csproj.AssemblyReference.cache
+Z:\Projects\C#\Circles\CirclesCore\obj\Release\Circles.exe
+Z:\Projects\C#\Circles\CirclesCore\obj\Release\Circles.pdb
