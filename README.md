@@ -17,7 +17,7 @@ Setup can be seen in the word documents included in the repo. This program is no
 -   Basic Programming
 -   Classes and Objects
 -   Generated Graphics Component
--   OnPain
+-   OnPaint
 -   Enums
 
 ## Notes
