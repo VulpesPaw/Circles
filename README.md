@@ -28,6 +28,9 @@ This was my exam project for programing C# year 1, 2020. There are a lot of thin
 
 ISC Licence, see LICENCE.md
 
+## GUI
+![circles_preview](https://user-images.githubusercontent.com/63596133/189150922-d2f01411-9b98-491c-a72a-4eb6e2d66f52.png)
+
 #
 
 Cheers FoxPaw
