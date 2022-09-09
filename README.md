@@ -1,36 +1,60 @@
-# Circles - Dynamic Archery Targets
+# CIRCLES - C#
 
-## ABOUT
+## Background
 
-The Circles Software is meant to be a form of archery practice. By paring the software with a projector, thus mirroring the screen onto a wall, an archer can unleash an arrow a the circular target. With the target appearing in at an unknown time, in an unknown place, with an unknown size. With these in mind, it will prove to be good practice for the instinctive longbow archer.
+This project is where my Exam Project for the course *Programing 1*, 2020.
 
-## Documentation & How to use
+This software was created and is in use by *Halmstad Archery Association*. 
 
-Setup can be seen in the word documents included in the repo. This program is not limited by different screen resolutions, thus if mirroring a projector screen this program will still be usable.
+## Purpose
 
-### Code Features
+Circles is a software meant for use during archery practice. By connecting this program to a projector and displaying it on an archery wall, you can create dynamic targets of random size, appearing in random locations.
 
--   Threads
--   Cross Thread Communications
--   CancellationTokens
--   KeyListeners
--   Basic Programming
--   Classes and Objects
--   Generated Graphics Component
--   OnPaint
--   Enums
+#### Exam requirements:
+
+- Basic Programing Principels
+
+- Functions 
+
+#### Archey usability requirements:
+
+- Compatible with different screen resolutions
+
+- Adjustable target area
+
+- Target customization
+
+## Development
+
+This project was programmed in .NET C#, with Visual Studio 2019 community edition.
+
+This project includes but is not limited to the following functionalities:
+
+- Threads
+
+- Cross thread communications
+
+- KeyListeners
+
+- Basic Programing Principels
+
+- Classes and Objects
+
+- Generated Graphics Components
+
+- OnPaint functions
+
+- Enums
+
+## Gui
+Circles startscreen GUI
+
+![circles_preview](https://user-images.githubusercontent.com/63596133/189150922-d2f01411-9b98-491c-a72a-4eb6e2d66f52.png)
 
 ## Notes
 
-This was my exam project for programing C# year 1, 2020. There are a lot of things I would do differently if I were to create this program today.
+The Circles project has taught me a great many things, and if I were to redo this project, I would do a lot of things differently. For example, I would use the more modern Tasks instead of Threads,  as Task is much easier to work with as well as more self sustainable and stable; just to mention one point.
 
 ## Licence
 
 ISC Licence, see LICENCE.md
-
-## GUI
-![circles_preview](https://user-images.githubusercontent.com/63596133/189150922-d2f01411-9b98-491c-a72a-4eb6e2d66f52.png)
-
-#
-
-Cheers FoxPaw
