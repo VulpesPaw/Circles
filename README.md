@@ -6,6 +6,12 @@ This project is where my Exam Project for the course *Programing 1*, 2020.
 
 This software was created and is in use by *Halmstad Archery Association*. 
 
+## User Guide
+
+See [[SE] Guiden till Circles](https://github.com/VulpesPaw/Circles/blob/master/Guideen%20till%20Circles.pdf ) or [[ENG] The Guide to Cirles](https://github.com/VulpesPaw/Circles/blob/master/GuideToCirclesEng.docx )
+
+
+
 ## Purpose
 
 Circles is a software meant for use during archery practice. By connecting this program to a projector and displaying it on an archery wall, you can create dynamic targets of random size, appearing in random locations.
