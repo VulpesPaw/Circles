@@ -2,7 +2,7 @@
 
 ## Background
 
-This project is where my Exam Project for the course *Programing 1*, 2020.
+This project were my Exam Project for the course *Programing 1*, 2020.
 
 This software was created and is in use by *Halmstad Archery Association*. 
 
