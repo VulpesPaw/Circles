@@ -8,7 +8,7 @@ This software was created and is in use by *Halmstad Archery Association*.
 
 ## User Guide
 
-See [[SE] Guiden till Circles](https://github.com/VulpesPaw/Circles/blob/master/Guideen%20till%20Circles.pdf ) or [[ENG] The Guide to Cirles](https://github.com/VulpesPaw/Circles/blob/master/GuideToCirclesEng.docx )
+See [[SE] Guiden till Circles](https://github.com/VulpesPaw/Circles/blob/master/Guideen%20till%20Circles.pdf ) or [[ENG] The Guide to Circles](https://github.com/VulpesPaw/Circles/blob/master/GuideToCirclesEng.docx )
 
 
 
