@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows;
 using System.Threading;
-
+using System.Windows.Forms;
 
 /* Real world application:
- * https://www.facebook.com/jorgen.palsson.58/videos/1482170481917293/ 
+ * https://www.facebook.com/jorgen.palsson.58/videos/1482170481917293/
  * Real world application, the program that we're useing in that instance was a first time prototype and got some small fixes after that.
  * That program was a JS protype me and my father built in a futile atempt to teach the JavaScript
  */
@@ -33,32 +27,34 @@ namespace CirclesCore
             InitializeComponent();
         }
 
-        int canvasTop; // Value of the canvas top of the draw-canvas (px)
-        int canvasHeight; // Value of the height of the draw-canvas (px)               
+        private int canvasTop; // Value of the canvas top of the draw-canvas (px)
+        private int canvasHeight; // Value of the height of the draw-canvas (px)
         public bool drawStart = true; // Determines whether OnPaint should paint or not
-        CancellationTokenSource circleLoopCancelToken = new CancellationTokenSource(); // Creates and refreshes canceltoken (needs to be refreshed to be able to cancel it)
-        CancellationTokenSource timeCancelToken; // Creates an unfreshed canceltoken
+        private CancellationTokenSource circleLoopCancelToken = new CancellationTokenSource(); // Creates and refreshes canceltoken (needs to be refreshed to be able to cancel it)
+        private CancellationTokenSource timeCancelToken; // Creates an unfreshed canceltoken
+
         //Cancellation Tokens have more function than a bool if you want to use it to cancel stuff. It's also thread safe and better for asynchronous.
-        Thread threadDraw;
-        
-        enum canvasTokenCollection // Used to determine whether doubleclicker should set top, height or nothing at all
+        private Thread threadDraw;
+
+        private enum canvasTokenCollection // Used to determine whether doubleclicker should set top, height or nothing at all
         {
             none = 0,
             setTop = 1,
             setHeight = 2,
             noneTwo = 3,
-        }       
-        enum lastCanvasChangeCollection //Used to determine whether textbox or doubleclicker was last to change the canvas values
+        }
+
+        private enum lastCanvasChangeCollection //Used to determine whether textbox or doubleclicker was last to change the canvas values
         {
             none = 0,
             textbox = 1,
             doubleclicker = 2,
             noneTwo = 3,
         }
-        canvasTokenCollection canvasToken = canvasTokenCollection.none;
-        lastCanvasChangeCollection lastCanvasChangeTop = lastCanvasChangeCollection.none;
-        lastCanvasChangeCollection lastCanvasChangeHeight = lastCanvasChangeCollection.none;
 
+        private canvasTokenCollection canvasToken = canvasTokenCollection.none;
+        private lastCanvasChangeCollection lastCanvasChangeTop = lastCanvasChangeCollection.none;
+        private lastCanvasChangeCollection lastCanvasChangeHeight = lastCanvasChangeCollection.none;
 
         protected override void OnPaint(PaintEventArgs e) // Paints the circles at setupscreen
         {
@@ -85,7 +81,6 @@ namespace CirclesCore
                 threadDraw = new Thread(new ThreadStart(drawAllCircles)); // Setups the aproitate thread
 
                 System.Diagnostics.Debug.WriteLine("--Thread Prept--");
-
             }
 
             if (threadDraw.IsAlive != true) //Checks if the thread is alive; avoids dupplicates
@@ -99,8 +94,9 @@ namespace CirclesCore
 
         private void drawAllCircles()
         {
-            this.Invoke((MethodInvoker)delegate {
-                /* Only the UI-thread (aka mainthread) can change UI elements, thereby a seperate thread cannot change any UI-elements. 
+            this.Invoke((MethodInvoker)delegate
+            {
+                /* Only the UI-thread (aka mainthread) can change UI elements, thereby a seperate thread cannot change any UI-elements.
                  A way to go around the problem is to use invoke (in my case methodInvoker). If you invoke, in this case a method,
                  you basicly askes the main thread to run the invoked code (or in my case a method) when it is free, you may use BeginInvoke if you doesn't want to wait on freetime in UI-thread.
                  You may read an amazing explenation on how it works here(see Threading Model UI, currently second heighes rated commet posted by Ryszard Dżegan):
@@ -128,7 +124,7 @@ namespace CirclesCore
             int circleAmount = getCircleAmount();
             Graphics g = genGr();
             SolidBrush wipeB = new SolidBrush(Color.Black);
-            g.FillRectangle(wipeB, 0, 0, ClientRectangle.Width, ClientRectangle.Height); // Cleans canvas 
+            g.FillRectangle(wipeB, 0, 0, ClientRectangle.Width, ClientRectangle.Height); // Cleans canvas
             sleepCanclePos(getTimeBeforeStart());
 
             for (int i = 0; i < circleAmount && !circleLoopCancelToken.IsCancellationRequested; i++) // Draws circles untill either it has reached circleAmount or if canceld by canceltoken
@@ -138,19 +134,22 @@ namespace CirclesCore
 
             draw.reDraw(); // Draws after-image
 
-            this.Invoke((MethodInvoker)delegate { //Transparent background doesn't exist in .NET with exception if I'd use a picturebox, thereby the labebackground is not transparent
+            this.Invoke((MethodInvoker)delegate
+            { //Transparent background doesn't exist in .NET with exception if I'd use a picturebox, thereby the labebackground is not transparent
                 lblContinue.Font = new Font("Baskerville Old Face", ClientRectangle.Height / 30); //Makes the label more dynamic
-                lblContinue.Location = new Point(ClientRectangle.Width / 2 - lblContinue.Size.Width / 2, (int)(ClientRectangle.Height * 0.05)); //Places the label in the middle top of the screen                
+                lblContinue.Location = new Point(ClientRectangle.Width / 2 - lblContinue.Size.Width / 2, (int)(ClientRectangle.Height * 0.05)); //Places the label in the middle top of the screen
                 lblContinue.Visible = true;
             });
 
             sleepCanclePos(45000);
 
-            this.Invoke((MethodInvoker)delegate {
+            this.Invoke((MethodInvoker)delegate
+            {
                 lblContinue.Visible = false;
             });
 
-            this.Invoke((MethodInvoker)delegate {
+            this.Invoke((MethodInvoker)delegate
+            {
                 guiVisibilty(1);
             });
 
@@ -164,11 +163,12 @@ namespace CirclesCore
             return g;
         }
 
-        /* 
+        /*
          * Puts the thread to sleep with the possibility to cancel the sleeping process
-         * 
+         *
          * OBS! NEVER USE IN UI-THREAD
          */
+
         private void sleepCanclePos(int millisecondsDelay)
         {
             timeCancelToken = new CancellationTokenSource(); // This makes it possible to cancel the method only while sleepCanclePos is running
@@ -176,7 +176,7 @@ namespace CirclesCore
             {
                 System.Threading.Thread.Sleep(500);
             }
-            timeCancelToken.Cancel(); // If this method is runned muliple times this keeps the cancellationtoken from being used outside of the method 
+            timeCancelToken.Cancel(); // If this method is runned muliple times this keeps the cancellationtoken from being used outside of the method
         }
 
         private void btnFullscreen_Click(object sender, EventArgs e) // Toggles between fullscreen and normal screen
@@ -186,7 +186,8 @@ namespace CirclesCore
                 FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                 WindowState = FormWindowState.Maximized;
                 btnFullscreen.Text = "Fullscreen (Esc)";
-            } else
+            }
+            else
             {
                 WindowState = FormWindowState.Normal;
                 FormBorderStyle = FormBorderStyle.Sizable;
@@ -205,15 +206,16 @@ namespace CirclesCore
                 Invalidate();
             }
         }
-        
+
         /*
          * Changes the visibility of controls
-         * 
+         *
          * If state = 0 --> contols.visible
          * If state = 1 --> controls.visible = true
          * If state = null --> default: state = 3 --> controls.visible inverts
          * state = 3 makes input optional
          */
+
         private void guiVisibilty(int state = 3)
         {
             tbxDecoy.Select();/*An always invisible readonly textbox meant to avoid you from writing in other textboxes if guiVisibility() is invisible */
@@ -227,6 +229,7 @@ namespace CirclesCore
                     lblVers.Visible = false;
                     lblSpaceStop.Visible = false;
                     break;
+
                 case 1:
                     grpBxControls.Visible = true;
                     btnFullscreen.Visible = true;
@@ -234,6 +237,7 @@ namespace CirclesCore
                     lblVers.Visible = true;
                     lblSpaceStop.Visible = true;
                     break;
+
                 default: // case 3: Inverts visibility
                     grpBxControls.Visible = grpBxControls.Visible ? false : true;
                     btnFullscreen.Visible = grpBxControls.Visible ? true : false;
@@ -252,7 +256,8 @@ namespace CirclesCore
                 if (grpBxControls.Visible == false)
                 {
                     c.ReadOnly = true;
-                } else
+                }
+                else
                 {
                     c.ReadOnly = false;
                 }
@@ -278,7 +283,8 @@ namespace CirclesCore
                         if ((MousePosition.Y - canvasTop) > 20 && (ClientRectangle.Height) > (MousePosition.Y + 20) && !(MousePosition.Y > ClientRectangle.Height))
                         {
                             canvasHeight = MousePosition.Y - canvasTop;
-                        } else
+                        }
+                        else
                         {
                             canvasHeight = ClientRectangle.Height - canvasTop;
                         }
@@ -327,7 +333,7 @@ namespace CirclesCore
             }
             if (e.KeyCode == Keys.F2) // Usefull debug-window
             {
-                StringBuilder debugMessage = new StringBuilder(); // Makes it possible to build messages including with if-statements 
+                StringBuilder debugMessage = new StringBuilder(); // Makes it possible to build messages including with if-statements
 
                 debugMessage.Append(
                     "---Window Sate---" + "\n" +
@@ -345,12 +351,13 @@ namespace CirclesCore
                 if (timeCancelToken != null)
                 {
                     debugMessage.Append("timeCancelToken: " + timeCancelToken.IsCancellationRequested + "\n" + "\n");
-                } else
+                }
+                else
                 {
                     debugMessage.Append("\n");
                 }
 
-                if (threadDraw != null) // If the thread is null it cannot check for other values because the 'instant was set to null' which leads to errors 
+                if (threadDraw != null) // If the thread is null it cannot check for other values because the 'instant was set to null' which leads to errors
                 {
                     debugMessage.Append("---ThreadState---" + "\n" +
                       "TheadIsAlive: " + threadDraw.IsAlive + "\n" +
@@ -364,21 +371,24 @@ namespace CirclesCore
                 if (grpBxControls.Visible)
                 {
                     debugMessage.AppendLine("grpBxControls: true");
-                } else
+                }
+                else
                 {
                     debugMessage.AppendLine("grpBxControls: false");
                 }
                 if (lblVers.Visible)
                 {
                     debugMessage.AppendLine("lblVers: true");
-                } else
+                }
+                else
                 {
                     debugMessage.AppendLine("lblVers: false");
                 }
                 if (btnFullscreen.Visible)
                 {
                     debugMessage.AppendLine("btnFullscreen: true");
-                } else
+                }
+                else
                 {
                     debugMessage.AppendLine("btnFullscreen: false");
                 }
@@ -405,140 +415,207 @@ namespace CirclesCore
             }
         }
 
-
         /*Get and Validation Methods*/
 
         private int getTimeBeforeStart()
         {
-            int parsedValue;
             int beforeStartTime = 9500;
-            if (!int.TryParse(tbxMinSize.Text, out parsedValue) || (int.Parse(tbxMinSize.Text) == 0))
+            try
             {
-                beforeStartTime = 9500;
-            } else
-            {
-                beforeStartTime = int.Parse(tbxTimeBeforeStart.Text);
+                int parsedValue;
+                if (!int.TryParse(tbxMinSize.Text, out parsedValue) || (int.Parse(tbxMinSize.Text) == 0))
+                {
+                    beforeStartTime = 9500;
+                }
+                else
+                {
+                    beforeStartTime = int.Parse(tbxTimeBeforeStart.Text);
+                }
+                return beforeStartTime;
             }
-            return beforeStartTime;
+            catch (Exception _)
+            {
+                return beforeStartTime;
+            }
         }
 
         private int getShowTime()
         {
-            int parsedValue;
-            int showTime;
-            if (!int.TryParse(tbxTimeShow.Text, out parsedValue) || (int.Parse(tbxTimeShow.Text) == 0))
+            int showTime = 3000;
+            try
             {
-                showTime = 3000;
-            } else
-            {
-                showTime = int.Parse(tbxTimeShow.Text);
+                int parsedValue;
+                if (!int.TryParse(tbxTimeShow.Text, out parsedValue) || (int.Parse(tbxTimeShow.Text) == 0))
+                {
+                    showTime = 3000;
+                }
+                else
+                {
+                    showTime = int.Parse(tbxTimeShow.Text);
+                }
+                return showTime;
             }
-            return showTime;
+            catch (Exception _)
+            {
+                return showTime;
+            }
         }
 
         private int getHideTime()
         {
-            int parsedValue;
-            int hideTime;
-            if (!int.TryParse(tbxTimeHide.Text, out parsedValue) || (int.Parse(tbxTimeHide.Text) == 0))
+            int hideTime = 4000;
+            try
             {
-                hideTime = 4000;
-            } else
-            {
-                hideTime = int.Parse(tbxTimeHide.Text);
+                int parsedValue;
+                if (!int.TryParse(tbxTimeHide.Text, out parsedValue) || (int.Parse(tbxTimeHide.Text) == 0))
+                {
+                    hideTime = 4000;
+                }
+                else
+                {
+                    hideTime = int.Parse(tbxTimeHide.Text);
+                }
+                return hideTime;
             }
-            return hideTime;
+            catch (Exception)
+            {
+                return hideTime;
+            }
         }
 
         private int getCircleAmount()
         {
-            int parsedValue;
-            int circleAmount;
-            if (!int.TryParse(tbxCircleAmount.Text, out parsedValue) || (int.Parse(tbxCircleAmount.Text) == 0) || tbxCircleAmount.Text == "Empty = Endless")
+            int circleAmount = 1048576;
+            try
             {
-                circleAmount = 999999999; // Equivalent to 222 years, so basiclly endless
-            } else
-            {
-                circleAmount = int.Parse(tbxCircleAmount.Text);
+                int parsedValue;
+                if (!int.TryParse(tbxCircleAmount.Text, out parsedValue) || (int.Parse(tbxCircleAmount.Text) == 0) || tbxCircleAmount.Text == "Empty = Endless")
+                {
+                    circleAmount = 1048576; // Equivalent to 222 years, so basiclly endless
+                }
+                else
+                {
+                    circleAmount = int.Parse(tbxCircleAmount.Text);
+                }
+                return circleAmount;
             }
-            return circleAmount;
+            catch (Exception)
+            {
+                return circleAmount;
+            }
         }
+
         private int getMaxSize()
         {
-            int parsedValue;
-            int maxSize;
-            // Checks if max-size textbox are empty or null. If it's true, it's given a default value. tryPared checks if it contains anything other than numbers
-            if (!int.TryParse(tbxMaxSize.Text, out parsedValue) || (int.Parse(tbxMaxSize.Text) == 0))
+            int maxSize = 250;
+            try
             {
-                maxSize = 250;
-            } else
-            {
-                maxSize = int.Parse(tbxMaxSize.Text);
-            }
+                int parsedValue;
+                // Checks if max-size textbox are empty or null. If it's true, it's given a default value. tryPared checks if it contains anything other than numbers
+                if (!int.TryParse(tbxMaxSize.Text, out parsedValue) || (int.Parse(tbxMaxSize.Text) == 0))
+                {
+                    maxSize = 250;
+                }
+                else
+                {
+                    maxSize = int.Parse(tbxMaxSize.Text);
+                }
 
-            if (maxSize >= getCanvasHeight())
-            {
-                maxSize = (int)(0.7 * getCanvasHeight()); // In order to avoid cirlce to be larger than canvas
+                if (maxSize >= getCanvasHeight())
+                {
+                    maxSize = (int)(0.7 * getCanvasHeight()); // In order to avoid cirlce to be larger than canvas
+                }
+                return maxSize;
             }
-            return maxSize;
+            catch (Exception _)
+            {
+                return maxSize;
+            }
         }
 
         private int getMinSize()
         {
-            int parsedValue;
-            int minSize;
-            // Checks if max-size textbox are empty or null. If it's true, it's given a default value. tryPared checks if it contains anything other than numbers
-            if (!int.TryParse(tbxMinSize.Text, out parsedValue) || (int.Parse(tbxMinSize.Text) == 0))
+            int minSize = 75;
+            try
             {
-                minSize = 75;
-            } else
-            {
-                minSize = int.Parse(tbxMinSize.Text);
-            }
+                int parsedValue;
+                // Checks if max-size textbox are empty or null. If it's true, it's given a default value. tryPared checks if it contains anything other than numbers
+                if (!int.TryParse(tbxMinSize.Text, out parsedValue) || (int.Parse(tbxMinSize.Text) == 0))
+                {
+                    minSize = 75;
+                }
+                else
+                {
+                    minSize = int.Parse(tbxMinSize.Text);
+                }
 
-            if (minSize > getMaxSize()) // Makes sure that min-size isn't larger than maxsize
-            {
-                minSize = getMaxSize();
+                if (minSize > getMaxSize()) // Makes sure that min-size isn't larger than maxsize
+                {
+                    minSize = getMaxSize();
+                }
+                return minSize;
             }
-            return minSize;
+            catch (Exception _)
+            {
+                return minSize;
+            }
         }
 
         private int getCanvasY()
         {
             int y;
-            if ((canvasTop < 10 || WindowState == FormWindowState.Normal || this.FormBorderStyle != FormBorderStyle.None) && tbxCanvasTop.Text != null &&
-                lastCanvasChangeTop != lastCanvasChangeCollection.textbox && lastCanvasChangeTop != lastCanvasChangeCollection.doubleclicker)
+            try
+            {
+                if ((canvasTop < 10 || WindowState == FormWindowState.Normal || this.FormBorderStyle != FormBorderStyle.None) && tbxCanvasTop.Text != null &&
+                    lastCanvasChangeTop != lastCanvasChangeCollection.textbox && lastCanvasChangeTop != lastCanvasChangeCollection.doubleclicker)
+                {
+                    y = 0;
+                }
+                else if (lastCanvasChangeTop == lastCanvasChangeCollection.textbox)
+                {
+                    y = int.Parse(tbxCanvasTop.Text);
+                }
+                else
+                {
+                    y = canvasTop;
+                }
+
+                return y;
+            }
+            catch (Exception _)
             {
                 y = 0;
-            } else if (lastCanvasChangeTop == lastCanvasChangeCollection.textbox)
-            {
-                y = int.Parse(tbxCanvasTop.Text);
-            } else
-            {
-                y = canvasTop;
+                return y;
             }
-
-            return y;
         }
 
         private int getCanvasHeight()
         {
             int y;
-            if ((canvasHeight < 10 || WindowState == FormWindowState.Normal || this.FormBorderStyle != FormBorderStyle.None) && tbxCanvasTop.Text != null &&
-                lastCanvasChangeHeight != lastCanvasChangeCollection.textbox && lastCanvasChangeHeight != lastCanvasChangeCollection.textbox)
+            try
+            {
+                if ((canvasHeight < 10 || WindowState == FormWindowState.Normal || this.FormBorderStyle != FormBorderStyle.None) && tbxCanvasTop.Text != null &&
+                    lastCanvasChangeHeight != lastCanvasChangeCollection.textbox && lastCanvasChangeHeight != lastCanvasChangeCollection.textbox)
+                {
+                    y = ClientRectangle.Height;
+                }
+                else if (lastCanvasChangeHeight == lastCanvasChangeCollection.textbox)
+                {
+                    y = int.Parse(tbxCanvasHeight.Text);
+                }
+                else
+                {
+                    y = canvasHeight;
+                }
+
+                return y;
+            }
+            catch (Exception _)
             {
                 y = ClientRectangle.Height;
-            } else if (lastCanvasChangeHeight == lastCanvasChangeCollection.textbox)
-            {
-                y = int.Parse(tbxCanvasHeight.Text);
-            } else
-            {
-                y = canvasHeight;
+                return y;
             }
-
-            return y;
         }
-
 
         /* Text changed methods
          *
@@ -567,28 +644,40 @@ namespace CirclesCore
             Invalidate();
         }
 
-
         /* Placeholder / Watermark methods*/
 
         private void tbxCircleAmount_Enter(object sender, EventArgs e)
         {
-            if (tbxCircleAmount.Text == "Empty = Endless")
+            try
             {
-                tbxCircleAmount.Text = "";
-                tbxCircleAmount.ForeColor = Color.Black;
+                if (tbxCircleAmount.Text == "Empty = Endless")
+                {
+                    tbxCircleAmount.Text = "";
+                    tbxCircleAmount.ForeColor = Color.Black;
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 
         private void tbxCircleAmount_Leave(object sender, EventArgs e)
         {
-            if (tbxCircleAmount.Text == "")
+            try
             {
-                tbxCircleAmount.Text = "Empty = Endless";
-                tbxCircleAmount.ForeColor = Color.Gray;
+                if (tbxCircleAmount.Text == "")
+                {
+                    tbxCircleAmount.Text = "Empty = Endless";
+                    tbxCircleAmount.ForeColor = Color.Gray;
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 
         /* Closing arguments */
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit(); // Closes the running application including running threads

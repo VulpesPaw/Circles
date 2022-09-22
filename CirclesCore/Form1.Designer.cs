@@ -179,9 +179,9 @@
             this.lblVers.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblVers.Location = new System.Drawing.Point(1169, 9);
             this.lblVers.Name = "lblVers";
-            this.lblVers.Size = new System.Drawing.Size(83, 13);
+            this.lblVers.Size = new System.Drawing.Size(77, 13);
             this.lblVers.TabIndex = 50;
-            this.lblVers.Text = "Circles v. 0.01.0";
+            this.lblVers.Text = "Circles v. 1.0.1";
             // 
             // btnFullscreen
             // 
@@ -300,12 +300,12 @@
             this.lblContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblContinue.AutoSize = true;
             this.lblContinue.BackColor = System.Drawing.Color.Black;
-            this.lblContinue.Font = new System.Drawing.Font("Baskerville Old Face", 63.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 63.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblContinue.ForeColor = System.Drawing.Color.White;
             this.lblContinue.Location = new System.Drawing.Point(318, 184);
             this.lblContinue.Margin = new System.Windows.Forms.Padding(0);
             this.lblContinue.Name = "lblContinue";
-            this.lblContinue.Size = new System.Drawing.Size(859, 97);
+            this.lblContinue.Size = new System.Drawing.Size(979, 96);
             this.lblContinue.TabIndex = 51;
             this.lblContinue.Text = "Press Space to Continue";
             this.lblContinue.Visible = false;
