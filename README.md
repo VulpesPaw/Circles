@@ -8,9 +8,7 @@ This software was created for and is in use by *Halmstad Archery Association*.
 
 ## User Guide
 
-See [[SE] Guiden till Circles](https://github.com/VulpesPaw/Circles/blob/master/Guideen%20till%20Circles.pdf ) or [[ENG] The Guide to Circles](https://github.com/VulpesPaw/Circles/blob/master/GuideToCirclesEng.docx )
-
-
+See /Docs/[[SE] Guiden till Circles](https://github.com/VulpesPaw/Circles/blob/master/docs/Guideen%20till%20Circles.pdf ) or /Docs/[[ENG] The Guide to Circles](https://github.com/VulpesPaw/Circles/blob/master/docs/GuideToCirclesEng.docx )
 
 ## Purpose
 
@@ -53,6 +51,7 @@ This project includes but is not limited to the following functionalities:
 - Enums
 
 ## Gui
+
 Circles startscreen GUI
 
 ![circles_preview](https://user-images.githubusercontent.com/63596133/189150922-d2f01411-9b98-491c-a72a-4eb6e2d66f52.png)
